@@ -221,6 +221,11 @@ class PreferenceManager2 private constructor(private val context: Context) : Pre
         onSet = { reloadHelper.recreate() }
     )
 
+    val hideWhatsappAndFacebook = preference(
+        key = booleanPreferencesKey(name = "enable_hidden_Whatsapp_and_Facebook"),
+        defaultValue = context.resources.getBoolean(R.bool.config_default_enable_hidden_whatsapp_and_facebook),
+    )
+
     val enableFontSelection = preference(
         key = booleanPreferencesKey(name = "enable_font_selection"),
         defaultValue = context.resources.getBoolean(R.bool.config_default_enable_font_selection),
