@@ -61,14 +61,20 @@ fun AppDrawerPreferences() {
             val hiddenApps = prefs2.hiddenApps.getAdapter().state.value
             val hideHiddenAppsInSearch = !prefs2.showHiddenAppsInSearch.getAdapter()
             val enableSmartHide = prefs2.enableSmartHide.getAdapter()
+
+            //this line gets the preference data from preferenceManager2 file and assign its data to val //
             val hideWhatsappAndFacebook = prefs2.hideWhatsappAndFacebook.getAdapter()
-            val hidewhatsappAndFacebookInSearch = !prefs2.showHiddenAppsInSearch.getAdapter()
             NavigationActionPreference(
                 label = stringResource(id = R.string.hidden_apps_label),
                 subtitle = resources.getQuantityString(R.plurals.apps_count, hiddenApps.size, hiddenApps.size),
                 destination = subRoute(name = AppDrawerRoutes.HIDDEN_APPS),
             )
-            SwitchPreference( label = "Hide Whatsapp and Facebook",adapter = hideWhatsappAndFacebook, )
+
+            //this line create a switch or a toggle to switch on or off to hide whatsapp and facebook icon//
+            SwitchPreference(
+                label = "Hide Whatsapp and Facebook",
+                adapter = hideWhatsappAndFacebook,
+                )
             ExpandAndShrink(visible = hiddenApps.isNotEmpty() && showDrawerSearchBar.state.value) {
                 DividerColumn {
                     SwitchPreference(

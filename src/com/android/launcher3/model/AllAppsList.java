@@ -139,6 +139,16 @@ public class AllAppsList {
         if (!mAppFilter.shouldShowApp(info.componentName)) {
             return;
         }
+        //this line is a conditional to check whether the method in appfilter for whatsapp is true or false and return the methods //
+        if (!mAppFilter.shouldShowWhatsapp(info.componentName))
+        {
+            return;
+        }
+        //this line is a conditional to check whether the method in appfilter for facebook is true or false and return the methods//
+        if(!mAppFilter.shouldShowFacebook(info.componentName))
+        {
+            return;
+        }
         if (findAppInfo(info.componentName, info.user) != null) {
             return;
         }

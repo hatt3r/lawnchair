@@ -24,4 +24,15 @@ public class AppFilter {
     public boolean shouldShowApp(ComponentName app) {
         return !mFilteredComponents.contains(app);
     }
+
+    //this method just removes/filters whatsapp icon and label from app drawer straight //
+    public boolean shouldShowWhatsapp(ComponentName app) {
+       return !"com.whatsapp".equals(app.getPackageName());
+    }
+
+    //this method just remove/filters facebook icon and label from app drawer//
+    public boolean shouldShowFacebook(ComponentName app)
+    {
+        return !"com.facebook.katana".equals(app.getPackageName());
+    }
 }

@@ -19,7 +19,12 @@ package app.lawnchair.preferences2
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.datastore.preferences.core.*
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.floatPreferencesKey
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import app.lawnchair.font.FontCache
 import app.lawnchair.gestures.config.GestureHandlerConfig
@@ -220,7 +225,7 @@ class PreferenceManager2 private constructor(private val context: Context) : Pre
         defaultValue = context.resources.getBoolean(R.bool.config_default_enable_smart_hide),
         onSet = { reloadHelper.recreate() }
     )
-
+    //creating hidewhatsappandfacebook preference to store boolean value from switch preference//
     val hideWhatsappAndFacebook = preference(
         key = booleanPreferencesKey(name = "enable_hidden_Whatsapp_and_Facebook"),
         defaultValue = context.resources.getBoolean(R.bool.config_default_enable_hidden_whatsapp_and_facebook),
